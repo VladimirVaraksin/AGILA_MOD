@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGILA MOD(+) Übungen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFFFFF; /* Weiß */
+            color: #00008B; /* Dunkelblau */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #00008B; /* Dunkelblau */
+        }
+        .container {
+            margin: 50px auto;
+            width: 90%;
+            max-width: 95%;
+            padding: 20px;
+            border: 2px solid #00008B; /* Dunkelblau */
+            background-color: #CFE8EF; /* Hellblau */
+            border-radius: 10px;
+        }
+        .rectangle {
+            background-color: white; /* Orange */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #000000;
+            border-radius: 5px;
+            cursor: grab;
+            width: 110px;
+            height: 60px;
+        }
+        .draggable input {
+            width: 80%;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .dropzone {
+            width: 115px;
+            height: 65px;
+            background-color: #add8e6; /* Hellblau */
+            border: 2px dashed #004a99;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #004a99;
+        }
+        button {
+            background-color: #FFA500; /* Orange */
+            color: #FFFFFF; /* Weiß */
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #FF8C00; /* Dunkleres Orange */
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input {
+            width: 80%;
+            padding: 8px;
+            text-align: center;
+            background: transparent;
+        }
+        .draggableContainer {
+            display:flex; flex-direction: row; justify-content: center; align-items: center;
+            flex-wrap: wrap;
+            margin: 20px;
+            gap: 10px;
+        }
+        .rhombus {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #000000;
+            border-radius: 5px;
+            cursor: grab;
+            height: 60px; /* adjust to control the size  */
+            aspect-ratio: 1;
+            clip-path: polygon(50% 0,100% 50%,50% 100%,0 50%);
+            background: white;
+        }
+        .rhombus input {
+            border: none;
+        }
+        .line {
+            width: 70px;
+            height: 5px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+<h1>AGILA MOD(+) Übungen</h1>
+
+<div class="container" id="aufgabe-container">
+    <p>Firma wird durch eine eindeutige Firmenbezeichnung identifiziert.</p>
+    <div class="draggableContainer">
+        <div class="rectangle" id="draggable1" draggable="true">
+            <label for="draggable1-text"></label>
+            <input type="text" id="draggable1-text" placeholder="...">
+        </div>
+        <div class="line" id="draggable2" draggable="true">
+        </div>
+        <div class="rhombus" id="draggable3" draggable="true">
+            <label for="draggable2-text"></label>
+            <input type="text" id="draggable2-text" placeholder="...">
+        </div>
+        <div class="line" id="draggable4" draggable="true">
+        </div>
+        <div class="rectangle" id="draggable5" draggable="true">
+            <label for="draggable3-text"></label>
+            <input type="text" id="draggable3-text" placeholder="...">
+        </div>
+    </div>
+    <div class="draggableContainer">
+        <div class="dropzone" id = "dropzone1"></div>
+        <div class="dropzone" id = "dropzone2"></div>
+        <div class="dropzone" id = "dropzone3"></div>
+        <div class="dropzone" id = "dropzone4"></div>
+        <div class="dropzone" id = "dropzone5"></div>
+    </div>
+    <button onclick="checkSolution()">Lösung Überprüfen</button>
+    <button onclick="resetTask()">Aufgabe zurücksetzen</button>
+</div>
+
+<script src="index.js"></script>
+
+</body>
+</html>
