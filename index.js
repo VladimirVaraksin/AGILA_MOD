@@ -43,6 +43,9 @@ function checkSolution() {
 
     const firstDropzone = dropzones[0];
     const lastDropzone = dropzones[dropzones.length - 1];
+    if (dropzones[0].children[0].className !== "rectangle" || dropzones[1].children[0].className !== "line" || dropzones[2].children[0].className !== "rhombus" || dropzones[3].children[0].className !== "line") {
+        isValid = false;
+    }
 
     if (firstDropzone.children.length === 0 || lastDropzone.children.length === 0) {
         isValid = false;
@@ -57,14 +60,12 @@ function checkSolution() {
 
     const aufgabeContainer = document.getElementById('aufgabe-container');
     let message = document.getElementById("check")
-    if (message !== null) {
-        message.textContent = isValid ? "Richtig!:)" : "Falsch:(";
-    } else {
+    if (message === null) {
         message = document.createElement('p');
         message.setAttribute('id', 'check');
-        message.textContent = isValid ? "Richtig!:)" : "Falsch:(";
         aufgabeContainer.appendChild(message);
     }
+    message.textContent = isValid ? "Richtig!:)" : "Falsch:(";
 }
 
 function shuffleDraggables() {
