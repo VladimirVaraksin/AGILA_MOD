@@ -39,23 +39,23 @@ function resetTask() {
 }
 function checkSolution() {
     const dropzones = document.querySelectorAll('.dropzone');
-    let isValid = true;
+    let isValid = false;
+    let c = 0;
+    dropzones.forEach((dropzone) => {
+        if (dropzone.firstChild !== null) {
+            c++;
+        }
+    })
+    if (c !== 5) {
+        return;
+    }
 
     const firstDropzone = dropzones[0];
     const lastDropzone = dropzones[dropzones.length - 1];
-    if (dropzones[0].children[0].className !== "rectangle" || dropzones[1].children[0].className !== "line" || dropzones[2].children[0].className !== "rhombus" || dropzones[3].children[0].className !== "line") {
-        isValid = false;
-    }
-
-    if (firstDropzone.children.length === 0 || lastDropzone.children.length === 0) {
-        isValid = false;
-    } else {
-        const firstText = firstDropzone.children[0].querySelector('input')?.value;
-        const lastText = lastDropzone.children[lastDropzone.children.length - 1].querySelector('input')?.value;
-
-        if (firstText !== 'Firma' || lastText !== 'Firmenbezeichnung') {
-            isValid = false;
-        }
+    if (dropzones[0].children[0].className === "rectangle" && dropzones[1].children[0].className === "line" && dropzones[2].children[0].className === "rhombus" && dropzones[3].children[0].className === "line"
+    && firstDropzone.children[0].querySelector('input')?.value === 'Firma' && lastDropzone.children[lastDropzone.children.length - 1].querySelector('input')?.value === 'Firmenbezeichnung'
+        && dropzones[2].children[0].querySelector('input')?.value === '') {
+        isValid = true;
     }
 
     const aufgabeContainer = document.getElementById('aufgabe-container');
