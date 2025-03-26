@@ -47,6 +47,10 @@ function checkSolution() {
         }
     })
     if (c !== 5) {
+        let message = document.getElementById("check");
+        if (message !== null) {
+            message.remove();
+        }
         return;
     }
 
